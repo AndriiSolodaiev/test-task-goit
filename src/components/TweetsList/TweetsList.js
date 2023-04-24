@@ -11,6 +11,7 @@ export const TweetsList = () => {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
   const [filterStatus, setFilterStatus] = useState("");
+
   useEffect(() => {
     fetchUsers(page).then((data) => setUsers((state) => [...state, ...data]));
   }, [page]);
