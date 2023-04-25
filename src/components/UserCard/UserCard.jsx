@@ -1,6 +1,4 @@
-import { useCallback, useState } from "react";
 import { updateFollowers } from "../requests";
-
 import {
   Avatar,
   AvatarWrapper,
@@ -13,16 +11,16 @@ import {
   UserStatistics,
 } from "./UserCard.styled";
 
-export const UserCard = ({ userInfo }) => {
-  const [user, setUser] = useState(userInfo);
-
-  const handleClick = useCallback(() => {
+export const UserCard = ({ userInfo, onFollowClick }) => {
+  const handleClick = () => {
     updateFollowers({
-      ...user,
-      isFollowing: !user.isFollowing,
-      followers: user.isFollowing ? user.followers - 1 : user.followers + 1,
-    }).then((data) => setUser(data));
-  }, [user]);
+      ...userInfo,
+      isFollowing: !userInfo.isFollowing,
+      followers: userInfo.isFollowing
+        ? userInfo.followers - 1
+        : userInfo.followers + 1,
+    }).then(onFollowClick);
+  };
 
   return (
     <CardContainerStyled>
@@ -30,23 +28,23 @@ export const UserCard = ({ userInfo }) => {
       <BgImgWrapper></BgImgWrapper>
       <HorizontalLine>
         <AvatarWrapper>
-          <Avatar src={user.avatar} alt={user.user} />
+          <Avatar src={userInfo.avatar} alt={userInfo.user} />
         </AvatarWrapper>
       </HorizontalLine>
       <StatisticsList>
         <UserStatistics>
-          {new Intl.NumberFormat("en-US").format(user.tweets)} Tweets
+          {new Intl.NumberFormat("en-US").format(userInfo.tweets)} Tweets
         </UserStatistics>
         <UserStatistics>
-          {new Intl.NumberFormat("en-US").format(user.followers)} Followers
+          {new Intl.NumberFormat("en-US").format(userInfo.followers)} Followers
         </UserStatistics>
       </StatisticsList>
       <Button
         type="button"
         onClick={handleClick}
-        isFollowing={user.isFollowing}
+        isFollowing={userInfo.isFollowing}
       >
-        {user.isFollowing ? "Following" : "Follow"}
+        {userInfo.isFollowing ? "Following" : "Follow"}
       </Button>
     </CardContainerStyled>
   );
