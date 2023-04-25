@@ -8,7 +8,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path="tweets" element={<TweetsPage />} />
+        <Route path="/tweets" element={<TweetsPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
