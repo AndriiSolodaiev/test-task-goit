@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import bgImg from "../../img/bgImg.png";
-import cardLogo from "../../img/cardLogo.png";
+
 export const CardContainerStyled = styled.li`
-  max-width: 380px;
-  max-height: 460px;
+  width: 380px;
+  height: 460px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,8 +22,6 @@ export const CardContainerStyled = styled.li`
 `;
 
 export const CardLogo = styled.div`
-  background-image: url(${cardLogo});
-  background-size: cover;
   position: absolute;
   top: 20px;
   left: 20px;
@@ -34,7 +32,7 @@ export const CardLogo = styled.div`
 export const BgImgWrapper = styled.div`
   background-image: url(${bgImg});
   background-size: cover;
-
+  position: relative;
   width: 308px;
   height: 168px;
   margin-bottom: 18px;
@@ -66,8 +64,6 @@ export const AvatarWrapper = styled.div`
   border-radius: 50px;
 `;
 export const Avatar = styled.img`
-  width: 62px;
-  height: 62px;
   border-radius: 50%;
 `;
 
@@ -107,4 +103,8 @@ export const Button = styled.button`
   background-color: ${(prop) => (prop.isFollowing ? "#5CD3A8" : "#ebd8ff")};
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border-radius: 10.3108px;
+  transition: all 250ms ease;
+  &:hover {
+    opacity: 0.8;
+  }
 `;

@@ -10,6 +10,7 @@ import {
   StatisticsList,
   UserStatistics,
 } from "./UserCard.styled";
+import cardLogo from "../../img/cardLogo.png";
 
 export const UserCard = ({ userInfo, onFollowClick }) => {
   const handleClick = () => {
@@ -24,11 +25,18 @@ export const UserCard = ({ userInfo, onFollowClick }) => {
 
   return (
     <CardContainerStyled>
-      <CardLogo></CardLogo>
+      <CardLogo>
+        <img src={cardLogo} alt="Logo" width="76" height="22" />
+      </CardLogo>
       <BgImgWrapper></BgImgWrapper>
       <HorizontalLine>
         <AvatarWrapper>
-          <Avatar src={userInfo.avatar} alt={userInfo.user} />
+          <Avatar
+            src={userInfo.avatar}
+            alt={userInfo.user}
+            width="62"
+            height="62"
+          />
         </AvatarWrapper>
       </HorizontalLine>
       <StatisticsList>

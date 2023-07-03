@@ -33,11 +33,12 @@ The list of users, whose data is obtained from the backend at mockapi.io, is dis
 ### react-icons
 
 - a library of icons for React.
-  react-dropdown - a library for creating dropdown menus in React.
+  ### react-dropdown
+  - a library for creating dropdown menus in React.
 
 ### Backend:
 
-mockapi.io
+- mockapi.io
 
 To run the application, clone the repository, navigate to the project directory in your terminal, run **npm install** to install the dependencies, and then run
 **npm start**
